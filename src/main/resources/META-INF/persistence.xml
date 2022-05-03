@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+    <persistence-unit name="hello">
+        <!-- 순수 jpa에서는 class 지정 필요 // gradle로 빌드시!  -->
+        <class>firstPractice.Item</class>
+        <class>firstPractice.OrderItem</class>
+        <class>firstPractice.Member</class>
+        <class>firstPractice.Order</class>
+        <class>firstPractice.Team</class>
+        <class>firstPractice.Delivery</class>
+        <class>firstPractice.DeliveryState</class>
+        <class>firstPractice.Category</class>
+        <class>firstPractice.Book</class>
+        <class>firstPractice.Album</class>
+        <class>firstPractice.Movie</class>
+
+        <properties>
+            <!-- 필수 속성 -->
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="javax.persistence.jdbc.user" value="sa"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/jpaorder"/>
+            <!-- DB 방언: SQL 표준을 지키지 않는 특정 DB 고유 기능. JPA는 특정 DB에 종속되지 않아 h2 방언 쓸 것을 미리 설.  -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+            <!-- 옵션 -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+            <!--  앱 로딩 시점에 기존 테이블 다 지우고 새 테이블 만들어주는 기능, auto ddl  -->
+            <property name="hibernate.hbm2ddl.auto" value="create" />
+        </properties>
+    </persistence-unit>
+</persistence>
