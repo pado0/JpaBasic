@@ -1,13 +1,15 @@
-package firstPractice;
+package jpqlPractice;
+
+import firstPractice.Order;
+import firstPractice.OrderItem;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.util.List;
 
-public class JpaMain {
-   /* public static void main(String[] args) {
+public class Main {
+    public static void main(String[] args) {
         //emf 만드는 순간 db와 연결 된다.
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
         EntityManager em = emf.createEntityManager();
@@ -16,15 +18,10 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         try {
+            Member member = new Member();
+            member.setUsername("member1");
 
-            Order order = new Order();
-            //order.addOrderItem(new OrderItem());
-
-            // 양방향 연관관계가 아니어도.. 무방하다는 예제
-            OrderItem orderItem = new OrderItem();
-            orderItem.setOrder(order);
-
-            em.persist(orderItem);
+            em.persist(member);
 
             tx.commit();
 
@@ -38,5 +35,5 @@ public class JpaMain {
 
         emf.close();
 
-    }*/
+    }
 }
